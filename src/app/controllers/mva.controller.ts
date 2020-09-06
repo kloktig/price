@@ -1,19 +1,20 @@
-import {Body, Controller, Get, Post, Route} from 'tsoa';
-import {Mva} from "../models/mva";
+import {Body, Controller, Get, Post, Route, Example} from 'tsoa';
+import {getFullPrice, getMvaTypesAndRates, Mva, MvaWithTotalPrice} from "../models/mva";
 
-
-@Route('/mva.ts')
+@Route('mva')
 export class MvaController extends Controller {
+    @Example<Mva>({
+        "rateGroup": "normal",
+        "basePrice": 2000
+    })
 
-    @Get('/')
-    public getPrice(): string {
-        //const basePrice = price / 100;
-        return ""
+    @Get("groups")
+    public getGroups(): Promise<Array<string>> {
+        return Promise.resolve(getMvaTypesAndRates());
     }
 
-    @Post('/')
-    public PostPrice(@Body() requestBody: Mva): number {
-        //const basePrice = price / 100;
-        return requestBody.getFullPrice();
+    @Post("price")
+    public PostPrice(@Body() body: Mva): Promise<MvaWithTotalPrice> {
+        return Promise.resolve(getFullPrice(body));
     }
 }

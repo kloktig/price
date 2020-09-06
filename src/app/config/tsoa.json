@@ -3,6 +3,7 @@
   "controllerPathGlobs": [
     "app/controllers/**/*controller.ts"
   ],
+  "noImplicitAdditionalProperties": "silently-remove-extras",
 
   "spec": {
     "basePath": "/api/v1",
