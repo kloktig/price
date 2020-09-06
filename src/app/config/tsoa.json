@@ -1,0 +1,16 @@
+{
+  "entryFile": "./app/app.ts",
+
+  "spec": {
+    "basePath": "/api/v1",
+    "specVersion": 3,
+    "outputDirectory": "./api",
+    "controllerPathGlobs": [
+      "./controllers/**/*controller.ts"
+    ]
+  },
+  "routes": {
+    "basePath": "/api/v1",
+    "routesDir": "./routes"
+  }
+}

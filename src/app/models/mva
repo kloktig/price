@@ -1,0 +1,10 @@
+class Mva {
+    constructor(rateGroup: RateGroup) {
+    }
+}
+
+enum RateGroup {
+    Normal = 25,
+    Foods = 15,
+    Low = 12
+}
