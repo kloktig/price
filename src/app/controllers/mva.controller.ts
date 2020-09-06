@@ -1,15 +1,19 @@
-import { Controller, Get, Route } from 'tsoa';
+import {Body, Controller, Get, Post, Route} from 'tsoa';
+import {Mva} from "../models/mva";
 
-@Route('/mva')
+
+@Route('/mva.ts')
 export class MvaController extends Controller {
 
-    @Get('')
-    public async index() {
-        return { msg: 'Hello Mva Controler!' };
+    @Get('/')
+    public getPrice(): string {
+        //const basePrice = price / 100;
+        return ""
     }
 
-    @Get('/msg')
-    public msg() {
-        return { msg: 'This is a message' };
+    @Post('/')
+    public PostPrice(@Body() requestBody: Mva): number {
+        //const basePrice = price / 100;
+        return requestBody.getFullPrice();
     }
 }
