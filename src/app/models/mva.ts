@@ -1,5 +1,5 @@
 export interface Mva {
-    rateGroup: string;
+    group: string;
     basePrice: number;
 }
 
@@ -10,7 +10,7 @@ export interface MvaWithTotalPrice extends Mva{
 export function getFullPrice(mva: Mva): MvaWithTotalPrice {
     return {
         ...mva,
-        totalPrice: getPrice(mva.rateGroup) * mva.basePrice
+        totalPrice: getPrice(mva.group) * mva.basePrice
     }
 }
 

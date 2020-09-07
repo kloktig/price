@@ -5,14 +5,21 @@ import {getFullPrice, getMvaTypesAndRates, Mva, MvaWithTotalPrice} from "../mode
 export class MvaController extends Controller {
 
 
+    /**
+     * @summary Get MVA price groups
+     */
     @Get("groups")
     public getGroups(): Promise<Array<string>> {
         return Promise.resolve(getMvaTypesAndRates());
     }
 
+    /**
+     * @summary Get Price including MVA
+     * @param body
+     */
     @Post("price")
     @Example<MvaWithTotalPrice>({
-        "rateGroup": "normal",
+        "group": "normal",
         "basePrice": 2000,
         "totalPrice": 2500
     })

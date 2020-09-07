@@ -12,7 +12,7 @@ const models: TsoaRoute.Models = {
     "MvaWithTotalPrice": {
         "dataType": "refObject",
         "properties": {
-            "rateGroup": { "dataType": "string", "required": true },
+            "group": { "dataType": "string", "required": true },
             "basePrice": { "dataType": "double", "required": true },
             "totalPrice": { "dataType": "double", "required": true },
         },
@@ -22,7 +22,7 @@ const models: TsoaRoute.Models = {
     "Mva": {
         "dataType": "refObject",
         "properties": {
-            "rateGroup": { "dataType": "string", "required": true },
+            "group": { "dataType": "string", "required": true },
             "basePrice": { "dataType": "double", "required": true },
         },
         "additionalProperties": false,
