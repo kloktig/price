@@ -1,10 +1,11 @@
 export interface Mva {
     group: string;
     basePrice: number;
+    dateTime: Date;
 }
 
-export interface MvaWithTotalPrice extends Mva{
-    totalPrice: number
+export interface MvaWithTotalPrice extends Mva {
+    totalPrice: number;
 }
 
 export function getFullPrice(mva: Mva): MvaWithTotalPrice {
@@ -12,6 +13,10 @@ export function getFullPrice(mva: Mva): MvaWithTotalPrice {
         ...mva,
         totalPrice: getPrice(mva.group) * mva.basePrice
     }
+}
+
+export function isInValidRateGroup(rateGroup: string): boolean {
+    return !mvaTypes.get(rateGroup)
 }
 
 function getPrice(rateGroup: string): number {
@@ -22,14 +27,14 @@ function getPrice(rateGroup: string): number {
         throw new Error(`rateGroupe: ${rateGroup} is not valid. `)
 }
 
-export function getMvaTypesAndRates() : Array<string> {
+export function getMvaTypes(): Array<string> {
     return Array.from(mvaTypes.keys())
 }
 
 /**
  * Refer to https://www.skatteetaten.no/satser/merverdiavgift/
  */
-const mvaTypes: Map<string, number> = new Map([
+const mvaTypes = new Map([
     ["normal", 1.25],
     ["foods", 1.15],
     ["low", 1.12]

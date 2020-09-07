@@ -14,6 +14,7 @@ const models: TsoaRoute.Models = {
         "properties": {
             "group": { "dataType": "string", "required": true },
             "basePrice": { "dataType": "double", "required": true },
+            "dateTime": { "dataType": "datetime", "required": true },
             "totalPrice": { "dataType": "double", "required": true },
         },
         "additionalProperties": false,
@@ -24,6 +25,7 @@ const models: TsoaRoute.Models = {
         "properties": {
             "group": { "dataType": "string", "required": true },
             "basePrice": { "dataType": "double", "required": true },
+            "dateTime": { "dataType": "datetime", "required": true },
         },
         "additionalProperties": false,
     },
@@ -63,6 +65,7 @@ export function RegisterRoutes(app: express.Express) {
         function(request: any, response: any, next: any) {
             const args = {
                 body: { "in": "body", "name": "body", "required": true, "ref": "Mva" },
+                notFoundResponse: { "in": "res", "name": "404", "required": true, "dataType": "nestedObjectLiteral", "nestedProperties": { "reason": { "dataType": "string", "required": true } } },
             };
 
             // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
