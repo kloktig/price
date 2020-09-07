@@ -5,12 +5,12 @@ WORKDIR /usr/src/
 
 COPY ./src /usr/src/
 ENV NODE_ENV docker
-ENV PORT 30000
+ENV PORT 80
 
 RUN npm ci
 RUN npm run build:all
 
-EXPOSE 30000
+EXPOSE 80
 
 WORKDIR /usr/src/app
 
