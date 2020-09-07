@@ -106,3 +106,5 @@ dist
 /src/build/
 
 .idea
+
+.DS_Store
