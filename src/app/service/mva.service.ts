@@ -17,7 +17,7 @@ export class MvaService {
         if (num != undefined)
             return num
         else
-            throw new Error(`rateGroupe: ${rateGroup} is not valid. `)
+            throw new Error(`rateGroup: ${rateGroup} is not valid. `)
     }
 
     public getMvaTypes(): Array<string> {
